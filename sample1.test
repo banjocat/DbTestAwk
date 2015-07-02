@@ -2,8 +2,7 @@
 DB: sqliteDb
 ; Database type
 ; Currently only supports sqlite3
-DB_TYPE: sqlite3
-
+DB_EXEC: sqlite3
 
 
 ; Tables can be checked for existance
@@ -14,16 +13,13 @@ TABLE_EXIST icecream
 ; Tables can be search for column
 COLUMN_EXIST people name
 COLUMN_EXIST people no
-COLUMN_EXIST icecream
+COLUMN_EXIST icecream flavor
 
 
 ; Check for record existance
-RECORD_EXISTS people name='Jack' wife='Cassie'
-RECORD_EXISTS people name='Jack' AND wife='Cassie'
-RECORD_EXISTS people name='Jack' OR name='Cassie'
+RECORD_EXIST people name='Jack' AND wife='Cassie'
+RECORD_EXIST people name='Jack' OR name='Cassie'
 
 
-; Count records 
-RECORD_COUNT people 1 name='Jack'
 
 
