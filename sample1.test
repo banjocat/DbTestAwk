@@ -1,3 +1,5 @@
+; This is a comment
+
 ; The name of the database
 DB: sqliteDb
 ; Database exec command
