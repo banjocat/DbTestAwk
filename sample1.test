@@ -1,24 +1,28 @@
 ; The name of the database
 DB: sqliteDb
-; Database type
-; Currently only supports sqlite3
+; Database exec command
 DB_EXEC: sqlite3
 
 
 ; Tables can be checked for existance
 TABLE_EXIST people
+; Will fail
 TABLE_EXIST icecream
 
 
 ; Tables can be search for column
 COLUMN_EXIST people name
+; This will fail
 COLUMN_EXIST people no
+; This will fail
 COLUMN_EXIST icecream flavor
 
 
 ; Check for record existance
 RECORD_EXIST people name='Jack' AND wife='Cassie'
 RECORD_EXIST people name='Jack' OR name='Cassie'
+; Fails
+RECORD_EXIST people name='Jack' AND name='nobody'
 
 
 
