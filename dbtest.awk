@@ -51,8 +51,10 @@ function record_exist(table, where)
     error_check(where, "requires where field")
     statement = "SELECT count(*) from " \
         table " WHERE " where ";"
+    # Check for sytanx error
     cmd = dbexec " " db " \"" statement "\" \
         2>/dev/null "
+    # Check for count
     ret = system(cmd " 1>/dev/null")
     cmd | getline output
     if (ret != 0 || output == "0" || output == "") {
