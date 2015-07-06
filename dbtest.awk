@@ -20,7 +20,7 @@ BEGIN {
 /[^ ].+/ {syntax_error("Unknown syntax: " $0) }
 
 END {
-    print()
+    print("\n")
     print("**********************")
     print("Total tests:", pass + fail)
     print("Tests passed:", pass)
