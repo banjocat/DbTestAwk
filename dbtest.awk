@@ -20,7 +20,7 @@ BEGIN {
 /[^ ].+/ {syntax_error("Unknown syntax: " $0) }
 
 END {
-    print("\n")
+    print("")
     print("**********************")
     print("Total tests:", pass + fail)
     print("Tests passed:", pass)
@@ -52,65 +52,67 @@ function record_exist(table, where)
     statement = "SELECT count(*) from " \
         table " WHERE " where ";"
     # Check for sytanx error
-    cmd = dbexec " " db " \"" statement "\" \
-        2>/dev/null "
-    # Check for count
-    ret = system(cmd " 1>/dev/null")
+    cmd = dbexec " " db " \"" statement "\" 2>&1"
     cmd | getline output
-    if (ret != 0 || output == "0" || output == "") {
-        print_failure()
-        return
+    if (match(output, "Error") != 0 || output == "0" || output == "") {
+       print_failure()
     }
     pass += 1
-}
+
+ }
 
 
 function exec_sql(statement)
 {
-    cmd = dbexec " " db " \"" statement "\" \
-        1>/dev/null 2>/dev/null"
-    return system(cmd)
+
+   cmd = dbexec " " db " \"" statement "\" 2>&1"
+   cmd | getline output
+   if (match(output, "Error") != 0) {
+      return 1
+   }
+   return 0
 }
 
 
 function syntax_error(msg)
 {
-    print("Error line", NR, ": ", msg);
-    exit(-1)
+   print("Error line", NR, ": ", msg);
+   exit(-1)
 }
 
 function db_check()
 {
-    if (db == "") {
-        print("DB: not defined")
-        exit(-1)
-    }
-    if (dbexec == "") {
-        print("DB_TYPE: not defined")
-        exit(-1)
-    }
+   if (db == "") {
+      print("DB: not defined")
+      exit(-1)
+   }
+   if (dbexec == "") {
+      print("DB_TYPE: not defined")
+      exit(-1)
+   }
 }
 
 function error_check(field, error)
 {
-    if (field == "") {
-        syntax_error(error)
-    }
+   if (field == "") {
+      syntax_error(error)
+   }
 }
 
 function pass_or_fail(ret)
 {
-    if (ret == 0) {
-        pass += 1
-        return
-    }
-    print_failure()
+   if (ret == 0) {
+      pass += 1
+      return
+   }
+   print_failure()
 }
 
 function print_failure()
 {
-    fail += 1
-    print("Failed line:", NR, "->", $0)
+   fail += 1
+   print("Failed line:", NR, "->", $0)
 }
+
 
 
