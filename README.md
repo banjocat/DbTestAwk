@@ -1,6 +1,9 @@
 # DbTestAwk
 
-## What the heck does this do?
+## What problem does it solve?
+I needed a way to test database migrations in sqlite3.
+
+## How does it solve it?
 It is a domain specific language created in AWK that allows testing
 that migrations are done properly on a sqlite3 database.
 
@@ -36,7 +39,7 @@ Test reports look like below.
     Failed line: 12 -> TABLE_EXIST icecream
     Failed line: 18 -> COLUMN_EXIST people no
     Failed line: 20 -> COLUMN_EXIST icecream flavor
-    Failed line: 27 -> RECORD_EXIST people name='Jack' AND name='nobody'
+    Failed line: 27 -> RECORD_EXIST people name='Jack' AND wife='Not Cassie'
 
     **********************
     Total tests: 9
