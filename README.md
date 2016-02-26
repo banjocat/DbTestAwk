@@ -29,6 +29,16 @@ The language is defined below
     ; Confirms that the table bob has a record with name='bob'
     RECORD_EXIST bob name='bob'
   
+Test reports look like below.
 
+    Failed line: 12 -> TABLE_EXIST icecream
+    Failed line: 18 -> COLUMN_EXIST people no
+    Failed line: 20 -> COLUMN_EXIST icecream flavor
+    Failed line: 27 -> RECORD_EXIST people name='Jack' AND name='nobody'
+
+    **********************
+    Total tests: 9
+    Tests passed: 5
+Tests failed: 4
 
 
