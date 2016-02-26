@@ -24,8 +24,4 @@ COLUMN_EXIST icecream flavor
 RECORD_EXIST people name='Jack' AND wife='Cassie'
 RECORD_EXIST people name='Jack' OR name='Cassie'
 ; Fails
-RECORD_EXIST people name='Jack' AND name='nobody'
-
-
-
-
+RECORD_EXIST people name='Jack' AND wife='Not Cassie'
