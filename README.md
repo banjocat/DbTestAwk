@@ -18,8 +18,10 @@ To execute it
 The language is defined below
 
     ; This is a comment
-    DB: sqlite3 ; This is the name of the database defined at top of file
-    DB_EXEC sqlite3 ; The name of the command to execute the database. Normally this should just be sqlite3
+    ; This is the name of the database defined at top of file
+    DB: sqlite3 
+    ; The name of the command to execute the database. Normally this should just be sqlite3
+    DB_EXEC sqlite3 
     
     ; Now for the tests
     ; Confirms that the table bob exists
