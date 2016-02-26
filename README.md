@@ -5,7 +5,8 @@ It is a domain specific language created in AWK that allows testing
 that migrations are done properly on a sqlite3 database.
 
 ## Why use AWK?
-Because AWK is awesome. Even the name AWK is great.
+Because AWK is awesome. Even the name AWK is great. The language
+was ahead of its time.
 I also followed the amazing book "The AWK programming langauge"
 which shows how to make domain specific languages in AWK.
 
