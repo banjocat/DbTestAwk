@@ -15,16 +15,19 @@ To execute it
   
     awk -f dbtest.awk (testfile)
     
-The language is defind below
+The language is defined below
 
     ; This is a comment
     DB: sqlite3 ; This is the name of the database defined at top of file
     DB_EXEC sqlite3 ; The name of the command to execute the database. Normally this should just be sqlite3
     
     ; Now for the tests
-    TABLE_EXIST bob ; Confirms that the table bob exists
-    COLUMN_EXIST bob name ; Confirms that the table bob has column 'name'
-    RECORD_EXIST bob name='bob' ; Confirms that the table bob has a record with name='bob'
+    ; Confirms that the table bob exists
+    TABLE_EXIST bob
+    ; Confirms that the table bob has column 'name'
+    COLUMN_EXIST bob name 
+    ; Confirms that the table bob has a record with name='bob'
+    RECORD_EXIST bob name='bob'
   
 
 
