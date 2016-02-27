@@ -44,6 +44,6 @@ Test reports look like below.
     **********************
     Total tests: 9
     Tests passed: 5
-Tests failed: 4
+    Tests failed: 4
 
 
