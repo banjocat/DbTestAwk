@@ -15,7 +15,7 @@ TABLE_EXIST icecream
 ; Tables can be search for column
 COLUMN_EXIST people name
 ; This will fail
-COLUMN_EXIST people no
+COLUMN_EXIST people col_does_not_exist
 ; This will fail
 COLUMN_EXIST icecream flavor
 
