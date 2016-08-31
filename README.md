@@ -1,4 +1,5 @@
 # DbTestAwk
+sqlite3 is required to be installed
 
 ## What problem does it solve?
 I needed a way to test database migrations in sqlite3.
